@@ -1,5 +1,13 @@
 <script lang="ts">
+  import { ArrowCircleRightIcon, ChevronRightIcon } from '@heroicons/vue/solid'
+  import Tag from './Tag.vue'
+
   export default {
+    props: [
+      'head',
+      'body',
+      'tags'
+    ],
     methods: {
       // Flip arrow icon
       flip(body: any, icon: any) {
@@ -31,31 +39,36 @@
         }
       }
     },
-    props: [
-      'head',
-      'body'
-    ]
+    components: {
+      ArrowCircleRightIcon,
+      ChevronRightIcon,
+      Tag
+    }
   }
 </script>
 
 <template>
   <!-- Card -->
-  <div class="bg-amber-50 border-l-8 border-amber-800 divide-amber-100 divide-y drop-shadow-md my-2 mx-4 px-4 py-2 rounded-lg">
+  <div class="bg-amber-50 border-l-8 border-amber-800 divide-amber-200 divide-y drop-shadow-md my-2 px-4 py-2 rounded-lg">
     <div @click="action" class="cursor-pointer flex justify-between">
-      <h3 class="font-bold text-amber-800">
+      <h4 class="font-bold text-amber-800">
         {{ head }}
-      </h3>
-      <template v-if="this.$route.name == 'Home'">
-        <div class="pt-1">
-          <img class="origin-center -rotate-90" height="10" width="10" src="./icons/arrow-right.svg"/>
+      </h4>
+      <div class="flex gap-3 justify-between">
+        <div class="flex gap-2 justify-between text-sm">
+          <Tag v-for="tag in tags"
+            :key="tag"
+            :keyword="tag"
+          />
         </div>
-      </template>
-      <template v-else-if="this.$route.name != 'Contact'">
-        <div class="pt-1">
-          <img class="transition ease origin-center" height="10" width="10" src="./icons/arrow-right.svg"/>
-        </div>
-      </template>
+        <template v-if="this.$route.name == 'Home'">
+          <ArrowCircleRightIcon class="h-5 w-5" />
+        </template>
+        <template v-else-if="this.$route.name != 'Contact'">
+          <ChevronRightIcon class="ease h-5 origin-center transition w-5"/>
+        </template>
+      </div>
     </div>
-    <div class="h-8 overflow-auto py-1" v-html="body"></div>
+    <div class="font-serif h-8 overflow-auto py-1" v-html="body"></div>
   </div>
 </template>

@@ -19,5 +19,7 @@ from server import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('projects/', views.retrieve),
+    path('briefs/', views.briefs),
+    path('projects/', views.projects),
+    path('tags/', views.tags)
 ]

@@ -1,4 +1,6 @@
 from django.contrib import admin
-from . import models
+from .models import *
 
-admin.site.register(models.Project)
+admin.site.register(Brief)
+admin.site.register(Project)
+admin.site.register(Tag)

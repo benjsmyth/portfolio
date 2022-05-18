@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { RouterView } from 'vue-router';
   import Card from '../components/Card.vue'
 </script>
 
@@ -7,6 +8,10 @@
     <Card
       head="About"
       body="Read about me"
+    />
+    <Card
+      head="Tags"
+      body="Browse relevant topics"
     />
     <Card
       head="Projects"

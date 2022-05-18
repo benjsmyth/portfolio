@@ -1,37 +1,49 @@
-<script setup lang="ts">
+<script lang="ts">
   import { RouterLink } from 'vue-router'
+  import { SearchIcon } from '@heroicons/vue/solid'
+
+  export default {
+    components: { RouterLink, SearchIcon }
+  }
 </script>
 
 <template>
   <!-- Navigator -->
   <div id="navigator-wrapper">
     <header>
-      <nav class="flex justify-between p-2">
+      <nav class="flex justify-between">
         <!-- Router menu -->
-        <menu class="flex justify-between w-2/5">
+        <menu class="flex w-2/5">
             <!-- Home -->
-            <div class="transition ease-in-out hover:text-amber-900 px-2 py-1">
-                <RouterLink to="/">Home</RouterLink>
-            </div>
+            <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3 px-4" to="/" exact>Home</RouterLink>
             <!-- About -->
-            <div class="transition ease-in-out hover:text-amber-900 px-2 py-1">
-                <RouterLink to="/about">About</RouterLink>
-            </div>
+            <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/about" exact>About</RouterLink>
+            <!-- Tags -->
+            <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/tags" exact>Tags</RouterLink>
             <!-- Projects -->
-            <div class="transition ease-in-out hover:text-amber-900 px-2 py-1">
-                <RouterLink to="/projects">Projects</RouterLink>
-            </div>
+            <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/projects" exact>Projects</RouterLink>
             <!-- Contact -->
-            <div class="transition ease-in-out hover:text-amber-900 px-2 py-1">
-                <RouterLink to="/contact">Contact</RouterLink>
-            </div>
+            <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/contact" exact>Contact</RouterLink>
         </menu>
         <!-- Search bar -->
-        <div class="flex gap-1 justify-between w-2/5">
-            <input class="border bg-amber-50 shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-900 focus:transition font-mono rounded px-2 py-1 text-sm w-full" type="search" placeholder="key-word|keyword[, ...]*"/>
-            <button class="rounded transition ease-in-out hover:text-amber-900 px-2 py-1">Search</button>
+        <div class="w-2/5">
+          <div class="flex gap-2 h-full justify-between p-2 w-full">
+              <input class="border bg-amber-50 shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-600 focus:transition font-mono rounded px-2 py-1 text-sm w-full" type="search" placeholder="phrase[, ...]*"/>
+              <button class="p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition ease-in-out hover:fill-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+          </div>
         </div>
       </nav>
     </header>
   </div>
 </template>
+
+<style>
+  nav a.router-link-exact-active {
+    background: rgb(120 53 15); /* amber-900 */
+    color: rgb(254 243 199); /* amber-100 */
+  }
+</style>

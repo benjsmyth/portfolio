@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import ProjectsView from '../views/ProjectsView.vue'
-import ContactView from '../views/ContactView.vue'
+import Aside from '../views/Tags.vue'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import Projects from '../views/Projects.vue'
+import Tags from '../views/Tags.vue'
+import Contact from '../views/Contact.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +12,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomeView,
+      component: Home,
       meta: {
         desc: "Navigate my portfolio"
       }
@@ -18,15 +20,23 @@ const router = createRouter({
     {
       path: '/about',
       name: 'About',
-      component: AboutView,
+      component: About,
       meta: {
         desc: "Read about me"
       }
     },
     {
+      path: '/tags',
+      name: 'Tags',
+      component: Tags,
+      meta: {
+        desc: "Browse relevant topics"
+      }
+    },
+    {
       path: '/projects',
       name: 'Projects',
-      component: ProjectsView,
+      component: Projects,
       meta: {
         desc: "Discover my work"
       }
@@ -34,7 +44,7 @@ const router = createRouter({
     {
       path: '/contact',
       name: 'Contact',
-      component: ContactView,
+      component: Contact,
       meta: {
         desc: "Get in touch"
       }

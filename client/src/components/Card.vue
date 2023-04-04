@@ -1,14 +1,7 @@
 <script lang="ts">
   import { ArrowCircleRightIcon, ChevronRightIcon } from '@heroicons/vue/solid'
   import Tag from './Tag.vue'
-
-  export default {
-    props: [
-      'head',
-      'body',
-      'tags'
-    ],
-    methods: {
+  export default { props: ['head', 'body', 'tags'], methods: {
       // Flip arrow icon
       flip(body: any, icon: any) {
         if (body.getAttribute('class') == 'h-8 overflow-auto py-1') {
@@ -71,4 +64,5 @@
     </div>
     <div class="font-serif h-8 overflow-auto py-1" v-html="body"></div>
   </div>
+  <!---->
 </template>

@@ -1,6 +1,8 @@
 <script lang="ts">
   import { ExternalLinkIcon } from '@heroicons/vue/solid'
-  export default { components: { ExternalLinkIcon } }
+  export default {
+		components: { ExternalLinkIcon }
+	}
 </script>
 
 <template>

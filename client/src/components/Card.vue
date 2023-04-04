@@ -1,8 +1,9 @@
 <script lang="ts">
   import { ArrowCircleRightIcon, ChevronRightIcon } from '@heroicons/vue/solid'
   import Tag from './Tag.vue'
-  export default { props: ['head', 'body', 'tags'], methods: {
-      // Flip arrow icon
+  export default {
+    props: ['head', 'body', 'tags'],
+    methods: {
       flip(body: any, icon: any) {
         if (body.getAttribute('class') == 'h-8 overflow-auto py-1') {
           body.setAttribute('class', 'h-full overflow-auto py-1');
@@ -17,7 +18,6 @@
           icon.setAttribute('class', 'transition ease origin-center');
         }
       },
-      // Clickable action event
       action(event: any) {
         let body: any, icon: any
         if (event.target.tagName == 'DIV') {
@@ -25,7 +25,7 @@
           icon = event.target.childNodes['1'].childNodes['0']
         }
         if (this.$route.name == 'Home') {
-          // ... RouterLink
+          // TODO: Router link to '/'
         }
         else if (this.$route.name != 'Contact') {
           this.flip(body, icon)

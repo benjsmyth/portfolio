@@ -1,5 +1,5 @@
 # portfolio
-**Built with Django, Axios, Vue.js, and Tailwind CSS.**
+**Built with MySQL, Django, Axios, Vue.js, and Tailwind.**
 
 ## Design
 1. Information to be displayed is stored within an SQLite database.
@@ -10,18 +10,17 @@
 6. For a logical and uniform look, the website is styled using Tailwind CSS.
 
 ## Working
-- Interactive components
 - API calling
 - Database retrieval
-- List rendering w/ HTML content
-- Tag system
+- Interactive components
+- List rendering
+- Tagging system
 
 ## Todo
-- Implement searching
-- Implement sorting
-- Build contact form
-- Populate projects with text, code snippets, images, and links
-- Sorting will apply computed properties to the provided data
-- Searching will use the provided tags
-- Search results will return a dedicated SearchView
-  - But the data from the initial call is what gets displayed on the webpages
+- Contact form
+- Add projects with text, code snippets, images, and links
+- Searching / sorting
+  - Searching will use the provided tags
+  - Sorting will apply computed properties to the provided data
+  - Results will return a dedicated SearchView
+ 

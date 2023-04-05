@@ -16,7 +16,7 @@
 - List rendering w/ HTML content
 - Tag system
 
-# Todo
+## Todo
 - Implement searching
 - Implement sorting
 - Build contact form
@@ -24,4 +24,4 @@
 - Sorting will apply computed properties to the provided data
 - Searching will use the provided tags
 - Search results will return a dedicated SearchView
-    - But the data from the initial call is what gets displayed on the webpages
+  - But the data from the initial call is what gets displayed on the webpages

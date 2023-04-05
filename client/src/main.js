@@ -9,23 +9,34 @@ import router from './router';
 const app = createApp(App).use(router);
 
 // Provide briefs
-axios.get('http://localhost:8000/briefs/').then(response => {
+axios
+  .get('http://localhost:8000/briefs/')
+  .then(response => {
     app.provide('briefs', response.data);
-})
-.catch(error => {console.log("error fetching briefs\n", error)});
+  })
+  .catch(error => {
+    console.log(`Error fetching briefs => ${error}`);
+  });
 
 // Provide projects
-axios.get('http://localhost:8000/projects/').then(response => {
+axios
+  .get('http://localhost:8000/projects/')
+  .then(response => {
     app.provide('projects', response.data);
-})
-.catch(error => {console.log("error fetching projects\n", error)});
+  })
+  .catch(error => {
+    console.log(`Error fetching projects => ${error}`);
+  });\n", error)});
 
 // Provide tags
-axios.get('http://localhost:8000/tags/').then(response => {
-    console.log(response.data)
+axios
+  .get('http://localhost:8000/tags/')
+  .then(response => {
     app.provide('tags', response.data);
-})
-.catch(error => {console.log("error fetching tags\n", error)});
+  })
+  .catch(error => {
+    console.log(`Error fetching tags => ${error}`);
+  });
 
 // Mount application
 app.mount('#app');

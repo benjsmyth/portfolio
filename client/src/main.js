@@ -26,7 +26,7 @@ axios
   })
   .catch(error => {
     console.log(`Error fetching projects => ${error}`);
-  });\n", error)});
+  });
 
 // Provide tags
 axios

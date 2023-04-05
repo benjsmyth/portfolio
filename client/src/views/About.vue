@@ -3,9 +3,7 @@
 </script>
 
 <script lang="ts">
-  export default {
-    inject: ['briefs']
-  }
+  export default { inject: ['briefs'] }
 </script>
 
 <template>

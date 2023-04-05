@@ -3,13 +3,10 @@
 </script>
 
 <script lang="ts">
-  export default {
-    inject: ['projects']
-  }
+  export default { inject: ['projects'] }
 </script>
 
 <template>
-  <!-- Projects -->
   <div class="space-y-8">
     <div id="projects-wrapper">
       <Card v-for="project in projects"

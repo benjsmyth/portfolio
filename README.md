@@ -1,5 +1,5 @@
 # portfolio
-**Built with MySQL, Django, Axios, Vue.js, and Tailwind.**
+**Built with SQLite, Django, Axios, Vue.js, and Tailwind CSS.**
 
 ## Design
 1. Information to be displayed is stored within an SQLite database.

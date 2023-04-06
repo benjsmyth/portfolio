@@ -12,11 +12,11 @@ A full stack web application designed to present myself and my portfolio of work
 - Harnesses **Vue**'s provide/inject functionality.
 - Consistent and uniform CSS using **Tailwind**.
 ### Design
-1. Information to be displayed is stored in an **SQLite** database.
+1. Information to be displayed is stored in a **SQLite** database.
 2. _Before_ the **Vue** application mounts, API calls are made via **Axios**.
 3. **Django** responds by reading from **SQLite**, returning the data as JSON.
 4. **Vue** _provides_ the returned JSON at the global application level.
-5. Views _inject_ the JSON so that it can render anywhere on the page.
+5. Views _inject_ the provided JSON so that it can render anywhere on the page.
 ## Features
 - Interactive components
 - Tagging system

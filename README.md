@@ -2,7 +2,11 @@
 A full stack web application designed to present myself and my portfolio of work.
 
 ## SDAV-T Stack
-**SQLite** <=> **Django** <=> **Axios** <=> **Vue** => **Tailwind**
+- **SQLite**
+- **Django**
+- **Axios**
+- **Vue**
+- **Tailwind**
 ### Benefits
 - Single-page application (SPA).
 - Extremely lightweight, fast, and responsive.

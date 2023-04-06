@@ -1,19 +1,22 @@
 # portfolio
-**Built with SQLite, Django, Axios, Vue.js, and Tailwind CSS.**
+_A full stack web application designed to present myself and my portfolio of work._
 
-## Design
-1. Information to be displayed is stored within an SQLite database.
-2. Before the Vue application mounts, API calls are made via Axios.
-3. Django responds by reading from the database, returning the data as JSON.
-4. Vue provides the returned JSON at the application-level.
-5. Components inject the JSON so it can render anywhere on the website.
-6. For a logical and uniform look, the website is styled using Tailwind CSS.
+## SDAV-T Stack
+**SQLite** <=> **Django** <=> **Axios** <=> **Vue.js** => **Tailwind**
+### Benefits
+- Single-page application (SPA).
+- Extremely lightweight, fast, and responsive.
+- Harnesses **Vue.js**'s provide/inject functionality.
+- Consistent and uniform CSS using **Tailwind**.
+### Design
+1. Information to be displayed is stored in an **SQLite** database.
+2. Before the **Vue.js** application mounts, API calls are made via **Axios**.
+3. **Django** responds by reading from **SQLite**, returning the data as JSON.
+4. **Vue.js** _provides_ the returned JSON at the global application level.
+5. Components _inject_ the JSON so that it can render anywhere on the page.
 
-## Working
-- API calling
-- Database retrieval
+## Features
 - Interactive components
-- List rendering
 - Tagging system
 
 ## Todo

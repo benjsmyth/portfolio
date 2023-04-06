@@ -1,5 +1,7 @@
 # portfolio
 A full stack web application designed to present myself and my portfolio of work.
+
+![Screenshot](https://github.com/benjsmyth/portfolio/blob/main/Screen%20Shot%202022-05-19%20at%2010.35.54%20AM.png)
 ## SDAV-T Stack
 - **S**QLite
 - **D**jango

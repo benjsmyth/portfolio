@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import Tag from '../components/Tag.vue'
+  import Tag from '../components/Tag.vue';
 </script>
 
 <script lang="ts">
-  export default { inject: ['tags'] }
+  export default { inject: ['tags'] };
 </script>
 
 <template>

@@ -1,15 +1,8 @@
-<script setup lang="ts">
-  import { defineComponent } from 'vue';
-</script>
-
 <script lang="ts">
-  export default defineComponent({
-    name: 'Tag',
-    props: [
-      'id',
-      'keyword'
-    ]
-  });
+  export default { props: [
+    'id',
+    'keyword'
+  ]};
 </script>
 
 <template>

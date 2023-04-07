@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { RouterLink } from 'vue-router'
-  import { SearchIcon } from '@heroicons/vue/solid'
+  import { RouterLink } from 'vue-router';
+  import { SearchIcon } from '@heroicons/vue/solid';
   export default { components: {
     RouterLink,
     SearchIcon
-  }}
+  }};
 </script>
 
 <template>
   <div id="navigator-wrapper">
     <header>
-      <!-- Navigation Menu -->
+      <!-- Navigation -->
       <nav class="flex justify-between">
         <menu class="flex w-2/5">
           <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3 px-4" to="/" exact>Home</RouterLink>
@@ -19,7 +19,7 @@
           <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/projects" exact>Projects</RouterLink>
           <RouterLink class="transition ease-in-out hover:bg-amber-900 hover:text-amber-100 p-3" to="/contact" exact>Contact</RouterLink>
         </menu>
-        <!-- Search Bar -->
+        <!-- Search -->
         <div class="w-2/5">
           <div class="flex gap-2 h-full justify-between p-2 w-full">
             <input class="border bg-amber-50 shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-600 focus:transition font-mono rounded px-2 py-1 text-sm w-full" type="search" placeholder="key-word[, key-word]*"/>
@@ -30,9 +30,7 @@
             </button>
           </div>
         </div>
-        <!---->
       </nav>
-      <!---->
     </header>
   </div>
 </template>

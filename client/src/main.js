@@ -1,14 +1,10 @@
-import { createApp } from 'vue';
-import axios from 'axios';
-
-// Application imports
 import App from './App.vue';
+import axios from 'axios';
 import router from './router';
+import { createApp } from 'vue';
 
-// Create application
 const app = createApp(App).use(router);
 
-// Provide briefs
 axios
   .get('http://localhost:8000/briefs/')
   .then(response => {
@@ -17,8 +13,6 @@ axios
   .catch(error => {
     console.log(`Error fetching briefs => ${error}`);
   });
-
-// Provide projects
 axios
   .get('http://localhost:8000/projects/')
   .then(response => {
@@ -27,8 +21,6 @@ axios
   .catch(error => {
     console.log(`Error fetching projects => ${error}`);
   });
-
-// Provide tags
 axios
   .get('http://localhost:8000/tags/')
   .then(response => {
@@ -38,5 +30,4 @@ axios
     console.log(`Error fetching tags => ${error}`);
   });
 
-// Mount application
 app.mount('#app');

@@ -7,8 +7,8 @@
 </script>
 
 <template>
-  <div id="tags-wrapper">
-    <Tag class="m-4 text-right" v-for="tag in tags"
+  <div id="tags-wrapper" class="gap-2 grid grid-cols-4">
+    <Tag v-for="tag in tags"
       :key="tag.id"
       :keyword="tag.keyword"
     />

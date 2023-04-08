@@ -12,11 +12,11 @@
     ],
     methods: {
       flip(body: any, icon: any) {
-        if (body.getAttribute('class') == 'font-serif h-8 overflow-auto py-1 scroll-smooth') {
-          body.setAttribute('class', 'font-serif h-full overflow-auto py-1 scroll-smooth');
+        if (body.getAttribute('class') == 'transition ease-in-out delay-150 font-serif h-8 overflow-auto py-1 scroll-smooth') {
+          body.setAttribute('class', 'transition ease-in-out delay-150 font-serif h-full overflow-auto py-1 scroll-smooth');
         }
         else {
-          body.setAttribute('class', 'font-serif h-8 overflow-auto py-1 scroll-smooth');
+          body.setAttribute('class', 'transition ease-in-out delay-150 font-serif h-8 overflow-auto py-1 scroll-smooth');
         }
         if (icon.getAttribute('class') == 'ease h-5 origin-center transition w-5') {
           icon.setAttribute('class', 'ease h-5 origin-center rotate-90 transition w-5');
@@ -68,28 +68,28 @@
 
 <template>
   <div
-    class="bg-amber-50 border-l-8 border-amber-800
-      divide-amber-200 divide-y drop-shadow-md
+    class="bg-amber-100 border-l-8 border-sky-950
+      divide-sky-950 divide-y drop-shadow-md
       my-2 px-4 py-2 rounded-lg"
     id="card">
     <div @click="action"
       class="cursor-pointer flex justify-between"
       id="head">
       <h4
-        class="font-bold select-none text-amber-800"
+        class="font-bold select-none text-sky-950"
         id="title">
         {{ head }}
       </h4>
       <div
-        class="flex gap-3 justify-between"
+        class="flex gap-4 justify-between"
         id="info">
-        <div
+        <!-- <div
           class="flex gap-2 justify-between text-sm"
           id="tags">
           <Tag id="tag" v-for="tag in tags"
             :key="tag"
             :keyword="tag"/>
-        </div>
+        </div> -->
         <template v-if="this.$route.name == 'Home'">
           <div
           class="h-5 w-5"
@@ -107,7 +107,7 @@
       </div>
     </div>
     <div
-      class="font-serif h-8 overflow-auto py-1 scroll-smooth"
+      class="transition ease-in-out delay-150 font-serif h-8 overflow-auto py-1 scroll-smooth"
       id="body"
       v-html="body">
     </div>

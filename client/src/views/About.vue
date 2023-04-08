@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <div id="about-wrapper">
+  <div id="about-wrapper" class="gap-4 grid grid-cols-2">
     <Card v-for="brief in briefs"
       :key="brief.id"
       :head="brief.topic"

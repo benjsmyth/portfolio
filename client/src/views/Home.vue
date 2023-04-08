@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div id="home-wrapper">
+  <div id="home-wrapper" class="gap-4 grid grid-cols-2">
     <Card
       head="About"
       body="Read about me"

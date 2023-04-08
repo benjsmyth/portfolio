@@ -17,7 +17,7 @@ app.use(router);
 
 // Prefetches
 // Briefs
-axios.get(
+await axios.get(
   `${HOST}:${PORT}/briefs/`
 ).then(response => {
   app.provide('briefs', response.data);
@@ -26,7 +26,7 @@ axios.get(
 });
 
 // Projects
-axios.get(
+await axios.get(
   `${HOST}:${PORT}/projects/`
 ).then(response => {
   app.provide('projects', response.data);
@@ -35,7 +35,7 @@ axios.get(
 });
 
 // Tags
-axios.get(
+await axios.get(
   `${HOST}:${PORT}/tags/`
 ).then(response => {
   app.provide('tags', response.data);

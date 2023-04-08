@@ -12,11 +12,11 @@
     ],
     methods: {
       flip(body: any, icon: any) {
-        if (body.getAttribute('class') == 'font-serif h-8 overflow-auto scroll-smooth py-1') {
-          body.setAttribute('class', 'font-serif h-full overflow-auto scroll-smooth py-1');
+        if (body.getAttribute('class') == 'font-serif h-8 overflow-auto py-1 scroll-smooth') {
+          body.setAttribute('class', 'font-serif h-full overflow-auto py-1 scroll-smooth');
         }
         else {
-          body.setAttribute('class', 'font-serif h-8 overflow-auto scroll-smooth py-1');
+          body.setAttribute('class', 'font-serif h-8 overflow-auto py-1 scroll-smooth');
         }
         if (icon.getAttribute('class') == 'ease h-5 origin-center transition w-5') {
           icon.setAttribute('class', 'ease h-5 origin-center rotate-90 transition w-5');

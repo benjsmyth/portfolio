@@ -1,7 +1,7 @@
 # portfolio
 A full stack web application designed to present myself and my portfolio of work.
 
-![Screenshot](https://github.com/benjsmyth/portfolio/blob/3-clean-code/assets/screenshot.png)
+![Screenshot](https://github.com/benjsmyth/portfolio/blob/main/assets/screenshot.png)
 ## SDAV-T Stack
 - **S**QLite
 - **D**jango

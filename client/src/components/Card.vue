@@ -73,7 +73,9 @@
 
 <template>
   <div
-    class="bg-amber-50 border-l-8 border-amber-800 divide-amber-200 divide-y drop-shadow-md my-2 px-4 py-2 rounded-lg"
+    class="bg-amber-50 border-l-8 border-amber-800
+      divide-amber-200 divide-y drop-shadow-md
+      my-2 px-4 py-2 rounded-lg"
     id="card">
     <div @click="action"
       class="cursor-pointer flex justify-between"

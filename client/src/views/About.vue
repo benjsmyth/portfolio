@@ -11,7 +11,7 @@
     <Card v-for="brief in briefs"
       :key="brief.id"
       :head="brief.topic"
-      :body="brief.desc"
+      :body="brief.content"
     />
   </div>
 </template>

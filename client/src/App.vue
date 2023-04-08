@@ -11,9 +11,9 @@
       <!-- <Profile class="basis-1/12 font-mono shadow-lg text-zinc-900 text-center"/> -->
       <aside class="basis-1/12 text-zinc-200 border-zinc-900 border-none border-r-4
         font-mono space-y-4 h-full p-6 shadow space-y-6">
-        <div>
+        <!-- <div>
           <img class="rounded-full" src="./assets/sound-waves-svgrepo-com.svg"/>
-        </div>
+        </div> -->
         <div class="h-5/6 space-y-6 w-full">
           <p class="text-center">
             Hi! My name is Ben, and this is my professional portfolio.

@@ -1,42 +1,47 @@
-import { createApp } from 'vue';
 import axios from 'axios';
+import { createApp } from 'vue';
 
-// Application imports
+// Custom imports
 import App from './App.vue';
 import router from './router';
 
-// Create application
-const app = createApp(App).use(router);
+// Address
+const HOST = 'http://localhost';
+const PORT = '8000';
 
-// Provide briefs
-axios
-  .get('http://localhost:8000/briefs/')
-  .then(response => {
-    app.provide('briefs', response.data);
-  })
-  .catch(error => {
-    console.log(`Error fetching briefs => ${error}`);
-  });
+// Application
+const app = createApp(App);
 
-// Provide projects
-axios
-  .get('http://localhost:8000/projects/')
-  .then(response => {
-    app.provide('projects', response.data);
-  })
-  .catch(error => {
-    console.log(`Error fetching projects => ${error}`);
-  });
+// Installations
+app.use(router);
 
-// Provide tags
-axios
-  .get('http://localhost:8000/tags/')
-  .then(response => {
-    app.provide('tags', response.data);
-  })
-  .catch(error => {
-    console.log(`Error fetching tags => ${error}`);
-  });
+// Prefetches
+// Briefs
+axios.get(
+  `${HOST}:${PORT}/briefs/`
+).then(response => {
+  app.provide('briefs', response.data);
+}).catch(error => {
+  console.log(`Error fetching briefs => ${error}`);
+});
 
-// Mount application
+// Projects
+axios.get(
+  `${HOST}:${PORT}/projects/`
+).then(response => {
+  app.provide('projects', response.data);
+}).catch(error => {
+  console.log(`Error fetching projects => ${error}`);
+});
+
+// Tags
+axios.get(
+  `${HOST}:${PORT}/tags/`
+).then(response => {
+  app.provide('tags', response.data);
+}).catch(error => {
+  console.log(`Error fetching tags => ${error}`);
+});
+
+// Mount
 app.mount('#app');

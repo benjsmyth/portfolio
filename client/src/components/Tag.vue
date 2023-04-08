@@ -1,5 +1,8 @@
 <script lang="ts">
-  export default { props: ['id', 'keyword'] }
+  export default { props: [
+    'id',
+    'keyword'
+  ]};
 </script>
 
 <template>

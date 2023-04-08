@@ -1,13 +1,18 @@
 <script lang="ts">
-  import { RouterView } from 'vue-router'
-  import { SortAscendingIcon, SortDescendingIcon } from '@heroicons/vue/solid'
+  import {
+    SortAscendingIcon,
+    SortDescendingIcon
+  } from '@heroicons/vue/solid';
+  // import { RouterView } from 'vue-router';
   export default {
-    components: { SortAscendingIcon, SortDescendingIcon }
-  }
+    components: {
+      SortAscendingIcon,
+      SortDescendingIcon
+    }
+  };
 </script>
 
 <template>
-  <!-- Viewer -->
   <div id="viewer-wrapper">
     <main class="p-8">
       <div class="flex items-end justify-between">
@@ -27,5 +32,4 @@
       <RouterView class="overflow-auto py-4"/>
     </main>
   </div>
-  <!---->
 </template>

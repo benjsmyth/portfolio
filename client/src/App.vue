@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Profile from './components/Profile.vue'
-  import Navigator from './components/Navigator.vue'
-  import Viewer from './components/Viewer.vue'
   import Footer from './components/Footer.vue'
+  import Navigator from './components/Navigator.vue'
+  // import Profile from './components/Profile.vue'
+  import Viewer from './components/Viewer.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@
       <!-- <Profile class="basis-1/12 font-mono shadow-lg text-amber-900 text-center"/> -->
       <aside class="basis-1/12 border-amber-900 border-none border-r-4 font-mono space-y-4 h-full p-6 shadow">
         <div>
-          <img class="rounded-full" src="./assets/sound-waves-svgrepo-com.svg" />
+          <img class="rounded-full" src="./assets/sound-waves-svgrepo-com.svg"/>
         </div>
         <div class="h-5/6 w-full">
           <p class="text-center">

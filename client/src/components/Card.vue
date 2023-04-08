@@ -37,9 +37,7 @@
         }
         let elemId: any = getElemId(elem);
         if (elemId != 'head') {
-          console.log("not head");
           while (elemId != 'head') {
-            console.log("hit " + elemId);
             if (elemId === 'tag') {
               // TODO: Define Tag routing in its own component
               console.log('TODO: Define Tag routing in its own component');
@@ -49,11 +47,8 @@
             elemId = getElemId(elem);
           }
         }
-        console.log("hit " + elemId);
         body = elem.nextSibling;
-        console.log("body: " + body.getAttribute('id'));
         icon = elem.querySelector('#chevron-right-icon');
-        console.log("icon: " + icon.getAttribute('id'));
         if (this.$route.name === 'Home') {
           // TODO: Router link to '/'
           console.log("/ TODO: Router link to '/'");

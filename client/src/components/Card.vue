@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Tag from './Tag.vue';
   import {
     ArrowCircleRightIcon,
     ChevronRightIcon
   } from '@heroicons/vue/solid';
+  import Tag from './Tag.vue';
   export default {
     props: [
       'head',
@@ -18,18 +18,18 @@
         else {
           body.setAttribute('class', 'h-8 overflow-auto py-1');
         }
-        if (icon.getAttribute('class') == 'transition ease origin-center') {
-          icon.setAttribute('class', 'transition ease origin-center rotate-90');
+        if (icon.getAttribute('class') == 'ease h-5 origin-center transition w-5') {
+          icon.setAttribute('class', 'ease h-5 origin-center rotate-90 transition w-5');
         }
         else {
-          icon.setAttribute('class', 'transition ease origin-center');
+          icon.setAttribute('class', 'ease h-5 origin-center transition w-5');
         }
       },
       action(event: any) {
         let body: any, icon: any;
         if (event.target.tagName == 'DIV') {
           body = event.target.nextSibling;
-          icon = event.target.childNodes['1'].childNodes['1'];
+          icon = event.target.querySelector('#heroicon');
         }
         if (this.$route.name == 'Home') {
           // TODO: Router link to '/'
@@ -61,10 +61,14 @@
           />
         </div>
         <template v-if="this.$route.name == 'Home'">
-          <ArrowCircleRightIcon class="h-5 w-5" />
+          <div class="h-5 w-5" id="heroicon">
+            <ArrowCircleRightIcon/>
+          </div>
         </template>
         <template v-else-if="this.$route.name != 'Contact'">
-          <ChevronRightIcon class="ease h-5 origin-center transition w-5"/>
+          <div class="ease h-5 origin-center transition w-5" id="heroicon">
+            <ChevronRightIcon/>
+          </div>
         </template>
       </div>
     </div>

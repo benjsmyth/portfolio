@@ -19,11 +19,8 @@ A fast, fullstack, lightweight web application. Designed to present myself and m
 5. Views _inject_ the provided JSON so that it can render anywhere on the page.
 ## Features
 - Interactive components
+- Searching / sorting
 - Tagging system
 ## Todo
 - (+) Contact form
 - (=) Project information (text, code snippets, images, & links)
-- Searching / sorting
-  - Searching will use the provided tags
-  - Sorting will apply computed properties to the provided data
-  - Results will return a dedicated SearchView

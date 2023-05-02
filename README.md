@@ -23,4 +23,4 @@ A fast, fullstack, lightweight web application. Designed to present myself and m
 - Tagging system
 ## Todo
 - (+) Contact form
-- (=) Project information (text, code snippets, images, & links)
+- (+) Project information (text, code snippets, images, & links)

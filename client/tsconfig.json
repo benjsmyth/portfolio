@@ -4,7 +4,7 @@
     "env.d.ts",
     "src/**/*",
     "src/**/*.vue"
-  ],
+, "volar.config.ts", "volar.config.ts"  ],
   "compilerOptions": {
     "baseUrl": ".",
     "ignoreDeprecations": "5.0",

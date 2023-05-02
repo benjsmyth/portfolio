@@ -1,17 +1,22 @@
+<!-- About view -->
+
 <script setup lang="ts">
-  import Card from '../components/Card.vue'
+  import FlipCard from '../components/FlipCard.vue';
+  import { AcademicCapIcon } from '@heroicons/vue/solid';
 </script>
 
 <script lang="ts">
-  export default { inject: ['briefs'] }
+  export default {
+    inject: ['abouts']
+  };
 </script>
 
 <template>
-  <div id="about-wrapper" class="gap-4 grid grid-cols-2">
-    <Card v-for="brief in briefs"
-      :key="brief.id"
-      :head="brief.topic"
-      :body="brief.content"
+  <div id="about-wrapper">
+    <FlipCard v-for="about in abouts"
+      :key="about.id"
+      :head="about.topic"
+      :body="about.content"
     />
   </div>
 </template>

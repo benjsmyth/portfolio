@@ -1,18 +1,16 @@
 # portfolio
-A full stack web application designed to present myself and my portfolio of work.
+A fast, fullstack, lightweight web application. Designed to present myself and my portfolio of work.
 
-![Screenshot](https://github.com/benjsmyth/portfolio/blob/main/assets/projects.png)
-## SDAV-T Stack
+## SDAV Stack
 - **S**QLite
 - **D**jango
 - **A**xios
-- **V**ue
-- **T**ailwind
+- **V**ue.js
 ### Benefits
 - Single-page application (SPA).
 - Extremely lightweight, fast, and responsive.
 - Harnesses **Vue**'s provide/inject functionality.
-- Consistent and uniform CSS using **Tailwind**.
+- Consistent and uniform style using **Tailwind**.
 ### Design
 1. Information to be displayed is stored in a **SQLite** database.
 2. _Before_ the **Vue** application mounts, API calls are made via **Axios**.
@@ -23,8 +21,8 @@ A full stack web application designed to present myself and my portfolio of work
 - Interactive components
 - Tagging system
 ## Todo
-- Contact form
-- Add projects (w/ text, code snippets, images, & links)
+- (+) Contact form
+- (=) Project information (text, code snippets, images, & links)
 - Searching / sorting
   - Searching will use the provided tags
   - Sorting will apply computed properties to the provided data

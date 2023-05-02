@@ -1,20 +1,143 @@
+<!-- Projects view -->
+
 <script setup lang="ts">
-  import Card from '../components/Card.vue'
+  import FlipCard from '../components/FlipCard.vue'
+  import {
+    CalendarIcon,
+    SortAscendingIcon,
+    SortDescendingIcon
+  } from '@heroicons/vue/solid';
 </script>
 
 <script lang="ts">
-  export default { inject: ['projects'] }
+  export default {
+    data() {
+      return {
+        activeClass:
+          "cursor-default ease-in-out bg-slate-700 px-2 py-1 text-slate-300 transition w-full",
+        ascendingClass:
+          "cursor-default ease-in-out bg-slate-700 px-2 py-1 text-slate-300 rounded-l-lg transition w-full",
+        dateClass:
+          "ease-in-out bg-slate-700 hover:text-slate-300 outline outline-1 outline-slate-600 px-2 py-1 rounded-r-lg text-slate-300 transition w-full",
+        inactiveClass:
+          "ease-in-out hover:text-slate-300 px-2 py-1 transition w-full",
+        isAscending: true,
+        isByTitle: true
+      }
+    },
+    inject: [
+      'projects',
+      'tags'
+    ],
+    computed: {
+      filteredProjects(): Array<object> {
+        const searchQuery = this.$route.query.q
+        let projects = (searchQuery != null && searchQuery.length > 0)
+          ? this.projects.filter((project: object) => {
+            for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
+          })
+          : this.projects;
+        if (this.isAscending) {
+          if (this.isByTitle) {
+            projects.sort((a: object, b: object) => a.title.localeCompare(b.title));
+          } else {
+            projects.sort((a: object, b: object) => a.date.localeCompare(b.date));
+          }
+        } else {
+          if (this.isByTitle) {
+            projects.sort((a: object, b: object) => b.title.localeCompare(a.title))
+          } else {
+            projects.sort((a: object, b: object) => b.date.localeCompare(a.date));
+          }
+        }
+        return projects;
+      }
+    },
+    methods: {
+      sortAscending() {
+        this.isAscending = true;
+      },
+      sortDescending() {
+        this.isAscending = false;
+      },
+      sortDate() {
+        this.isByTitle = this.isByTitle ? false : true;
+      }
+    },
+    components: {
+      SortAscendingIcon,
+      SortDescendingIcon
+    }
+  }
 </script>
 
 <template>
-  <div class="space-y-8">
-    <div id="projects-wrapper" class="gap-4 grid grid-cols-2">
-      <Card v-for="project in projects"
+  <div id="projects-wrapper"
+    class="
+      space-y-4
+    ">
+    <div id="organizing-tools"
+      class="
+        flex justify-around outline outline-1 outline-slate-600 mx-auto mb-5 rounded-lg text-slate-400 text-sm w-1/6
+      ">
+      <button id="sort-ascending-button" @click="sortAscending" :class="[
+          isAscending ? ascendingClass : inactiveClass
+        ]">
+        <SortAscendingIcon id="sort-ascending-icon"
+          class="
+            h-4 mx-auto w-4
+          "/>
+      </button>
+      <button id="sort-descending-button" @click="sortDescending" :class="[
+          !isAscending ? activeClass : inactiveClass
+        ]"
+        class="
+          border-x border-slate-600
+        ">
+        <SortDescendingIcon id="sort-descending-icon"
+          class="
+            h-4 mx-auto w-4
+          "/>
+      </button>
+      <button id="order-date-button" @click="sortDate" :class="[
+          !isByTitle ? dateClass : inactiveClass
+        ]"
+        class="
+          rounded-r-lg
+        ">
+        <CalendarIcon id="calendar-icon"
+          class="
+            h-4 mx-auto w-4
+          "/>
+      </button>
+    </div>
+    <TransitionGroup name="list" tag="flip-card" appear>
+      <FlipCard v-for="project in filteredProjects"
         :key="project.id"
         :head="project.title"
         :body="project.content"
         :tags="project.tags"
       />
-    </div>
+    </TransitionGroup>
   </div>
 </template>
+
+<style>
+  .list-move, /* apply transition to moving elements */
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .list-enter-from,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  /* ensure leaving items are taken out of layout flow so that moving
+    animations can be calculated correctly. */
+  .list-leave-active {
+    position: absolute;
+  }
+</style>

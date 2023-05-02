@@ -1,18 +1,18 @@
 from django.http import JsonResponse
 from .models import *
 
-def briefs(request):
+def abouts(request):
     """Fetch a list of briefs currently in the database."""
-    briefs = []
-    for brief in Brief.objects.all():
-        briefs.append({
-            'id': brief.id,
-            'topic': brief.topic,
-            'desc': brief.description,
-            'content': brief.content
+    abouts = []
+    for about in About.objects.all():
+        abouts.append({
+            'id': about.id,
+            'topic': about.topic,
+            'desc': about.description,
+            'content': about.content
         }
     )
-    response = JsonResponse(briefs, safe=False)
+    response = JsonResponse(abouts, safe=False)
     response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
     return response
 
@@ -30,6 +30,7 @@ def projects(request):
             'tags': sorted([tag.keyword for tag in project.tags.all()])
         }
     )
+    projects.sort(key=lambda project: project['title'])
     response = JsonResponse(projects, safe=False)
     response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
     return response
@@ -44,6 +45,12 @@ def tags(request):
             'projects': sorted([project.title for project in tag.projects.all()])
         }
     )
+    tags.sort(key=lambda tag: tag['keyword'])
     response = JsonResponse(tags, safe=False)
     response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
     return response
+
+# def search(request):
+#     """Fetch a list of related search terms."""
+#     result = []
+#     for term in Term.objects.all().

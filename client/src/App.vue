@@ -1,34 +1,20 @@
+<!-- Application component -->
+
 <script setup lang="ts">
-  import Footer from './components/Footer.vue'
-  import Navigator from './components/Navigator.vue'
-  // import Profile from './components/Profile.vue'
-  import Viewer from './components/Viewer.vue'
+  import Header from './components/Header.vue';
+  import Viewer from './components/Viewer.vue';
+  import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <div class="h-full" id="app-wrapper">
-    <div class="flex h-full justify-between">
-      <!-- <Profile class="basis-1/12 font-mono shadow-lg text-zinc-900 text-center"/> -->
-      <aside class="basis-1/12 text-zinc-200 border-zinc-900 border-none border-r-4
-        font-mono space-y-4 h-full p-6 shadow space-y-6">
-        <!-- <div>
-          <img class="rounded-full" src="./assets/sound-waves-svgrepo-com.svg"/>
-        </div> -->
-        <div class="h-5/6 space-y-6 w-full">
-          <p class="text-center">
-            Hi! My name is Ben, and this is my professional portfolio.
-          </p>
-          <p class="text-center">
-            You may navigate to any section, or use the search bar for filtered results.
-          </p>
-        </div>
-      </aside>
-      <div class="basis-11/12 h-full">
-        <Navigator class="bg-zinc-100 sticky top-0 z-10"/>
-        <Viewer class="border-zinc-900 px-4 h-full overflow-auto z-0"/>
-      </div>
-      <aside class="border-zinc-800 border-none border-l-4 h-full p-4 shadow" id="scrollbar"></aside>
-    </div>
-    <Footer class="bg-zinc-700 border-t-2 border-zinc-900 pb-2 px-4 shadow-lg sticky bottom-0"/>
+  <div id="app-wrapper"
+    class="h-full text-slate-300">
+    <!-- TODO: Turn into slots -->
+    <Header id="app-header"
+      class="bg-slate-700 outline outline-1 outline-slate-500"/>
+    <Viewer id="app-viewer"
+      class="bg-slate-800"/>
+    <Footer id="app-footer"
+      class="bg-slate-900 outline outline-1 outline-slate-500"/>
   </div>
 </template>

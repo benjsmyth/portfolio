@@ -1,34 +1,22 @@
 <script lang="ts">
-  import {
-    SortAscendingIcon,
-    SortDescendingIcon
-  } from '@heroicons/vue/solid';
-  // import { RouterView } from 'vue-router';
-  export default {
-    components: {
-      SortAscendingIcon,
-      SortDescendingIcon
-    }
-  };
+  // import { RouterView } from 'vue-router';  // TODO: arrow navigators
 </script>
 
 <template>
-  <div class="bg-zinc-700 border shadow-inner" id="viewer-wrapper">
-    <main class="p-8">
-      <div class="flex items-end justify-between">
-        <h1 class="font-bold text-4xl text-amber-100">{{ this.$route.name }}</h1>
-        <template v-if="this.$route.name == 'Projects'">
-          <div class="divide-zinc-900 divide-x flex font-mono pb-1 justify-between text-zinc-200 text-sm" id="sort">
-            <button class="px-2"><SortDescendingIcon class="h-5 w-5"/></button>
-            <button class="px-2"><SortAscendingIcon class="h-5 w-5"/></button>
-            <button class="px-2">Date</button>
-            <button class="px-2">Language</button>
-            <button class="px-2">Title</button>
-          </div>
-        </template>
-        <h2 class="text-2xl text-amber-100">{{ this.$route.meta.desc }}</h2>
+  <div id="viewer-wrapper"
+    class="h-full px-28 py-3 overflow-auto">
+    <main id="viewer-main"
+      class="p-8 overflow-auto">
+      <div id="viewer-window"
+        class="flex items-end justify-between">
+        <h1 id="viewer-route-name"
+          class="font-bold text-4xl text-slate-300">
+          {{ this.$route.name.charAt(0).toUpperCase() + this.$route.name.slice(1) }}
+        </h1>
+        <h2 class="text-2xl text-slate-300">
+          {{ this.$route.meta.desc.charAt(0).toUpperCase() + this.$route.meta.desc.slice(1) }}
+        </h2>
       </div>
-      <hr class="border-dashed border-zinc-800"/>
       <RouterView class="overflow-auto py-4"/>
     </main>
   </div>

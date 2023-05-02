@@ -1,7 +1,7 @@
 from datetime import date
 from django.db import models
 
-class Brief(models.Model):
+class About(models.Model):
     """A section of concise text describing an aspect of my life."""
     topic = models.CharField(max_length=9)
     description = models.CharField(max_length=100)
@@ -20,7 +20,7 @@ class Project(models.Model):
         return self.title
 
 class Tag(models.Model):
-    """A word or phrase annotating a Project."""
+    """A word or phrase annotating a project."""
     keyword = models.CharField(max_length=25)
     projects = models.ManyToManyField(Project, related_name='tags')
     def __str__(self):

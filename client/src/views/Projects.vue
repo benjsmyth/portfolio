@@ -30,24 +30,23 @@
       'tags'
     ],
     computed: {
-      filteredProjects(): Array<object> {
+      filteredProjects(): Array<any> {
         const searchQuery = this.$route.query.q
-        let projects = (searchQuery != null && searchQuery.length > 0)
-          ? this.projects.filter((project: object) => {
+        let projects = (searchQuery != null && searchQuery.length > 0) ?
+          this.projects.filter((project: any) => {
             for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
-          })
-          : this.projects;
+          }) : this.projects;
         if (this.isAscending) {
           if (this.isByTitle) {
-            projects.sort((a: object, b: object) => a.title.localeCompare(b.title));
+            projects.sort((a: any, b: any) => a.title.localeCompare(b.title));
           } else {
-            projects.sort((a: object, b: object) => a.date.localeCompare(b.date));
+            projects.sort((a: any, b: any) => a.date.localeCompare(b.date));
           }
         } else {
           if (this.isByTitle) {
-            projects.sort((a: object, b: object) => b.title.localeCompare(a.title))
+            projects.sort((a: any, b: any) => b.title.localeCompare(a.title))
           } else {
-            projects.sort((a: object, b: object) => b.date.localeCompare(a.date));
+            projects.sort((a: any, b: any) => b.date.localeCompare(a.date));
           }
         }
         return projects;
@@ -68,7 +67,7 @@
       SortAscendingIcon,
       SortDescendingIcon
     }
-  }
+  };
 </script>
 
 <template>
@@ -128,13 +127,11 @@
   .list-leave-active {
     transition: all 0.3s ease;
   }
-
   .list-enter-from,
   .list-leave-to {
     opacity: 0;
     transform: translateX(30px);
   }
-
   /* ensure leaving items are taken out of layout flow so that moving
     animations can be calculated correctly. */
   .list-leave-active {

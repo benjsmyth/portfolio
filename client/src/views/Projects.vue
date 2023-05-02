@@ -2,6 +2,7 @@
 
 <script setup lang="ts">
   import FlipCard from '../components/FlipCard.vue'
+  import { defineComponent } from 'vue';
   import {
     CalendarIcon,
     SortAscendingIcon,
@@ -10,7 +11,8 @@
 </script>
 
 <script lang="ts">
-  export default {
+  export default defineComponent({
+    // Options: State
     data() {
       return {
         activeClass:
@@ -21,14 +23,22 @@
           "ease-in-out bg-slate-700 hover:text-slate-300 outline outline-1 outline-slate-600 px-2 py-1 rounded-r-lg text-slate-300 transition w-full",
         inactiveClass:
           "ease-in-out hover:text-slate-300 px-2 py-1 transition w-full",
-        isAscending: true,
-        isByTitle: true
+        isAscending:
+          true,
+        isByTitle:
+          true
       }
     },
-    inject: [
-      'projects',
-      'tags'
-    ],
+    props: {
+      projects: {
+        type: Array<any>,
+        required: true
+      },
+      tags: {
+        type: Array<any>,
+        required: true
+      }
+    },
     computed: {
       filteredProjects(): Array<any> {
         const searchQuery = this.$route.query.q
@@ -63,11 +73,17 @@
         this.isByTitle = this.isByTitle ? false : true;
       }
     },
+    // Options: Composition
+    inject: [
+      'projects',
+      'tags'
+    ],
+    // Options: Misc
     components: {
       SortAscendingIcon,
       SortDescendingIcon
     }
-  };
+  });
 </script>
 
 <template>

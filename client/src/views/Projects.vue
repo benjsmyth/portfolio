@@ -1,15 +1,17 @@
 <!-- Projects view -->
 
-<script setup lang="ts">
+<script lang="ts">
   import { CalendarIcon, SortAscendingIcon, SortDescendingIcon  } from '@heroicons/vue/solid';
   import { projectKey } from '@/keys';
   import { defineComponent, inject } from 'vue';
   import FlipCard from '../components/FlipCard.vue';
-  const projects = inject(projectKey, []);
-</script>
-
-<script lang="ts">
   export default defineComponent({
+    setup() {
+      const projects = inject(projectKey, []);
+      return {
+        projects
+      }
+    },
     // Options: State
     data() {
       return {
@@ -21,19 +23,17 @@
           "ease-in-out bg-slate-700 hover:text-slate-300 outline outline-1 outline-slate-600 px-2 py-1 rounded-r-lg text-slate-300 transition w-full",
         inactiveClass:
           "ease-in-out hover:text-slate-300 px-2 py-1 transition w-full",
-        isAscending:
-          true,
-        isByTitle:
-          true
+        isAscending: true,
+        isByTitle: true
       }
     },
     computed: {
       filteredProjects(): Array<any> {
         const searchQuery = this.$route.query.q
         let filteredProjects: any[] = (searchQuery != null && searchQuery.length > 0) ?
-          projects.filter((project: any) => {
+          this.projects.filter((project: any) => {
             for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
-          }) : projects;
+          }) : this.projects;
         if (this.isAscending) {
           if (this.isByTitle) {
             filteredProjects.sort((a: any, b: any) => a.title.localeCompare(b.title));
@@ -68,6 +68,8 @@
     // ],
     // Options: Misc
     components: {
+      CalendarIcon,
+      FlipCard,
       SortAscendingIcon,
       SortDescendingIcon
     }
@@ -129,7 +131,7 @@
   .list-move, /* apply transition to moving elements */
   .list-enter-active,
   .list-leave-active {
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
   }
   .list-enter-from,
   .list-leave-to {

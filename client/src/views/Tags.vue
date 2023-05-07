@@ -8,7 +8,7 @@
   import { defineComponent, inject } from 'vue'
   import { tagKey } from '../keys';
   import Tag from '../components/Tag.vue';
-  const tags = inject(tagKey);
+  const tags = inject(tagKey, []);
 </script>
 
 <template>

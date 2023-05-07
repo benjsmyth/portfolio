@@ -13,9 +13,6 @@
         searchQuery: ''
       }
     },
-    inject: [
-      'projects'
-    ],
     methods: {
       searchSite(): void {
         this.$router.push({

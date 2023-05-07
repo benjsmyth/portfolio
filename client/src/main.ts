@@ -5,14 +5,13 @@
  */
 
 // Third-party imports
-import axios from 'axios';
 import { createApp } from 'vue';
-import type { InjectionKey } from 'vue';
+import axios from 'axios';
 
 // Custom imports
-import App from './App.vue';
-import router from './router';
 import { aboutKey, projectKey, tagKey } from './keys';
+import router from './router';
+import App from './App.vue';
 
 // Addresses
 const HOST: string = 'http://localhost';
@@ -23,7 +22,7 @@ const app: any = createApp(App).use(router);
 
 // GET abouts
 await axios.get(`${HOST}:${PORT}/abouts`)
-  .then(response => { const aboutKey = Symbol() as InjectionKey<Array<any>>;
+  .then(response => {
     app.provide(
       aboutKey, response.data
     );
@@ -36,7 +35,7 @@ await axios.get(`${HOST}:${PORT}/abouts`)
 //
 // GET projects
 await axios.get(`${HOST}:${PORT}/projects`)
-  .then(response => { const projectKey = Symbol() as InjectionKey<Array<any>>;
+  .then(response => {
     app.provide(
       projectKey, response.data
     );
@@ -49,7 +48,7 @@ await axios.get(`${HOST}:${PORT}/projects`)
 //
 // GET tags
 await axios.get(`${HOST}:${PORT}/tags`)
-  .then(response => { const tagKey = Symbol() as InjectionKey<Array<any>>;
+  .then(response => {
     app.provide(
       tagKey, response.data
     );

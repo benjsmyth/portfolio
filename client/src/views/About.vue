@@ -5,7 +5,7 @@
   import { aboutKey } from '@/keys';
   import { inject } from 'vue';
   import FlipCard from '@/components/FlipCard.vue';
-  const abouts = inject(aboutKey);
+  const abouts = inject(aboutKey, []);
 </script>
 
 <template>

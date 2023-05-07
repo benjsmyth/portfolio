@@ -13,8 +13,8 @@
   export default defineComponent({
     // Options: State
     props: {
-      head: HTMLElement,
-      body: HTMLElement
+      head: String,
+      body: String
     },
     methods: {
       flipCard(event: MouseEvent): void {

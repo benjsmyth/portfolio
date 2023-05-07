@@ -3,10 +3,11 @@
 <script setup lang="ts">
   import { RouterLink } from 'vue-router';
   import { SearchIcon } from '@heroicons/vue/solid';
+  import { defineComponent } from 'vue';
 </script>
 
 <script lang="ts">
-  export default {
+  export default defineComponent({
     data() {
       return {
         searchQuery: ''
@@ -31,7 +32,7 @@
       RouterLink,
       SearchIcon
     }
-  };
+  });
 </script>
 
 <template>
@@ -45,9 +46,8 @@
           class="
             flex text-slate-400 w-2/5
           ">
-          <RouterLink id="menu-home" to="/"
-            :exact-active-class="
-              'bg-slate-800 outline outline-1 outline-slate-500'
+          <RouterLink id="menu-home" to="/" :exact-active-class="
+              'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
             class="
               ease-in-out p-2 px-3 transition hover:text-slate-300
@@ -56,7 +56,7 @@
           </RouterLink>
           <RouterLink id="menu-about" to="/about"
             :exact-active-class="
-              'bg-slate-800 outline outline-1 outline-slate-500'
+              'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
             class="
               ease-in-out p-2 px-3 transition hover:text-slate-300
@@ -65,7 +65,7 @@
           </RouterLink>
           <RouterLink id="menu-tags" to="/tags"
             :exact-active-class="
-              'bg-slate-800 outline outline-1 outline-slate-500'
+              'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
             class="
               ease-in-out p-2 px-3 transition hover:text-slate-300
@@ -74,7 +74,7 @@
           </RouterLink>
           <RouterLink id="menu-projects" to="/projects"
             :exact-active-class="
-              'bg-slate-800 outline outline-1 outline-slate-500'
+              'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
             class="
               ease-in-out p-2 px-3 transition hover:text-slate-300
@@ -83,7 +83,7 @@
           </RouterLink>
           <RouterLink id="menu-contact" to="/contact"
             :exact-active-class="
-              'bg-slate-800 outline outline-1 outline-slate-500'
+              'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
             class="
               ease-in-out p-2 px-3 transition hover:text-slate-300

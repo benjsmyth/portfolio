@@ -1,13 +1,23 @@
-<!-- Tags view -->
+<!--
+ * File:    `Tags` view component
+ * Author:  Ben J. Smyth
+ * Date:    May 7, 2023
+-->
 
 <script setup lang="ts">
+  import { defineComponent, inject } from 'vue'
+  import { tagKey } from '../keys';
   import Tag from '../components/Tag.vue';
 </script>
 
 <script lang="ts">
-  export default {
-    inject: ['tags']
-  };
+  export default defineComponent({
+    setup() {
+      return {
+        tags: inject(tagKey)
+      };
+    }
+  });
 </script>
 
 <template>
@@ -25,13 +35,13 @@
         Search for tags like
         <span id="search-example"
           class="round-lg bg-slate-600 font-mono text-slate-300">
-            django, vue-js, tailwind css</span>.
+            django, vue-js, tailwind css
+          </span>.
       </p>
       <p id="unnecessary-hashtag">
         You can include the
-        <span id="tag-symbol"
-          class="round-lg bg-slate-600 font-mono text-slate-300">#</span>
-            symbol, but you don't have to!
+        <span id="tag-symbol" class=" round-lg bg-slate-600 font-mono text-slate-300 ">#</span>
+          symbol, but you don't have to!
       </p>
     </div>
   </div>

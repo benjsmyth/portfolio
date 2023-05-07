@@ -1,13 +1,9 @@
 <!-- Projects view -->
 
 <script setup lang="ts">
-  import FlipCard from '../components/FlipCard.vue'
   import { defineComponent } from 'vue';
-  import {
-    CalendarIcon,
-    SortAscendingIcon,
-    SortDescendingIcon
-  } from '@heroicons/vue/solid';
+  import { CalendarIcon, SortAscendingIcon, SortDescendingIcon  } from '@heroicons/vue/solid';
+  import FlipCard from '../components/FlipCard.vue';
 </script>
 
 <script lang="ts">
@@ -27,16 +23,6 @@
           true,
         isByTitle:
           true
-      }
-    },
-    props: {
-      projects: {
-        type: Array<any>,
-        required: true
-      },
-      tags: {
-        type: Array<any>,
-        required: true
       }
     },
     computed: {
@@ -74,10 +60,10 @@
       }
     },
     // Options: Composition
-    inject: [
-      'projects',
-      'tags'
-    ],
+    // inject: [
+    //   'projects',
+    //   'tags'
+    // ],
     // Options: Misc
     components: {
       SortAscendingIcon,
@@ -141,7 +127,7 @@
   .list-move, /* apply transition to moving elements */
   .list-enter-active,
   .list-leave-active {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
   }
   .list-enter-from,
   .list-leave-to {

@@ -1,9 +1,11 @@
 <!-- Projects view -->
 
 <script setup lang="ts">
-  import { defineComponent } from 'vue';
   import { CalendarIcon, SortAscendingIcon, SortDescendingIcon  } from '@heroicons/vue/solid';
+  import { projectKey } from '@/keys';
+  import { defineComponent, inject } from 'vue';
   import FlipCard from '../components/FlipCard.vue';
+  const projects = inject(projectKey, []);
 </script>
 
 <script lang="ts">
@@ -28,24 +30,24 @@
     computed: {
       filteredProjects(): Array<any> {
         const searchQuery = this.$route.query.q
-        let projects = (searchQuery != null && searchQuery.length > 0) ?
-          this.projects.filter((project: any) => {
+        let filteredProjects: any[] = (searchQuery != null && searchQuery.length > 0) ?
+          projects.filter((project: any) => {
             for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
-          }) : this.projects;
+          }) : projects;
         if (this.isAscending) {
           if (this.isByTitle) {
-            projects.sort((a: any, b: any) => a.title.localeCompare(b.title));
+            filteredProjects.sort((a: any, b: any) => a.title.localeCompare(b.title));
           } else {
-            projects.sort((a: any, b: any) => a.date.localeCompare(b.date));
+            filteredProjects.sort((a: any, b: any) => a.date.localeCompare(b.date));
           }
         } else {
           if (this.isByTitle) {
-            projects.sort((a: any, b: any) => b.title.localeCompare(a.title))
+            filteredProjects.sort((a: any, b: any) => b.title.localeCompare(a.title))
           } else {
-            projects.sort((a: any, b: any) => b.date.localeCompare(a.date));
+            filteredProjects.sort((a: any, b: any) => b.date.localeCompare(a.date));
           }
         }
-        return projects;
+        return filteredProjects;
       }
     },
     methods: {

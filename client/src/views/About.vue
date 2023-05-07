@@ -1,14 +1,11 @@
 <!-- About view -->
 
 <script setup lang="ts">
-  import FlipCard from '../components/FlipCard.vue';
-  import { AcademicCapIcon } from '@heroicons/vue/solid';
-</script>
-
-<script lang="ts">
-  export default {
-    inject: ['abouts']
-  };
+  // import { AcademicCapIcon } from '@heroicons/vue/solid';
+  import { aboutKey } from '@/keys';
+  import { inject } from 'vue';
+  import FlipCard from '@/components/FlipCard.vue';
+  const abouts = inject(aboutKey);
 </script>
 
 <template>

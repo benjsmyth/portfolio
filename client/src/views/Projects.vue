@@ -1,17 +1,17 @@
 <!-- Projects view -->
 
-<script setup lang="ts">
-  import FlipCard from '../components/FlipCard.vue'
-  import { defineComponent } from 'vue';
-  import {
-    CalendarIcon,
-    SortAscendingIcon,
-    SortDescendingIcon
-  } from '@heroicons/vue/solid';
-</script>
-
 <script lang="ts">
+  import { CalendarIcon, SortAscendingIcon, SortDescendingIcon  } from '@heroicons/vue/solid';
+  import { projectKey } from '@/keys';
+  import { defineComponent, inject } from 'vue';
+  import FlipCard from '../components/FlipCard.vue';
   export default defineComponent({
+    setup() {
+      const projects = inject(projectKey, []);
+      return {
+        projects
+      }
+    },
     // Options: State
     data() {
       return {
@@ -23,43 +23,31 @@
           "ease-in-out bg-slate-700 hover:text-slate-300 outline outline-1 outline-slate-600 px-2 py-1 rounded-r-lg text-slate-300 transition w-full",
         inactiveClass:
           "ease-in-out hover:text-slate-300 px-2 py-1 transition w-full",
-        isAscending:
-          true,
-        isByTitle:
-          true
-      }
-    },
-    props: {
-      projects: {
-        type: Array<any>,
-        required: true
-      },
-      tags: {
-        type: Array<any>,
-        required: true
+        isAscending: true,
+        isByTitle: true
       }
     },
     computed: {
       filteredProjects(): Array<any> {
         const searchQuery = this.$route.query.q
-        let projects = (searchQuery != null && searchQuery.length > 0) ?
+        let filteredProjects: any[] = (searchQuery != null && searchQuery.length > 0) ?
           this.projects.filter((project: any) => {
             for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
           }) : this.projects;
         if (this.isAscending) {
           if (this.isByTitle) {
-            projects.sort((a: any, b: any) => a.title.localeCompare(b.title));
+            filteredProjects.sort((a: any, b: any) => a.title.localeCompare(b.title));
           } else {
-            projects.sort((a: any, b: any) => a.date.localeCompare(b.date));
+            filteredProjects.sort((a: any, b: any) => a.date.localeCompare(b.date));
           }
         } else {
           if (this.isByTitle) {
-            projects.sort((a: any, b: any) => b.title.localeCompare(a.title))
+            filteredProjects.sort((a: any, b: any) => b.title.localeCompare(a.title))
           } else {
-            projects.sort((a: any, b: any) => b.date.localeCompare(a.date));
+            filteredProjects.sort((a: any, b: any) => b.date.localeCompare(a.date));
           }
         }
-        return projects;
+        return filteredProjects;
       }
     },
     methods: {
@@ -74,12 +62,14 @@
       }
     },
     // Options: Composition
-    inject: [
-      'projects',
-      'tags'
-    ],
+    // inject: [
+    //   'projects',
+    //   'tags'
+    // ],
     // Options: Misc
     components: {
+      CalendarIcon,
+      FlipCard,
       SortAscendingIcon,
       SortDescendingIcon
     }
@@ -141,7 +131,7 @@
   .list-move, /* apply transition to moving elements */
   .list-enter-active,
   .list-leave-active {
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
   }
   .list-enter-from,
   .list-leave-to {

@@ -1,11 +1,8 @@
 <!-- Tag component -->
 
-<script setup lang="ts">
-  import { RouterLink } from 'vue-router';
-</script>
-
 <script lang="ts">
-  export default {
+  import { defineComponent } from 'vue';
+  export default defineComponent({
     props: [
       'id',
       'keyword'
@@ -14,15 +11,13 @@
       searchSite(): void {
         this.$router.push({
           path: '/projects',
-          query: { q: this.keyword
-            .toLowerCase()
-            .split(/[^\w]+/)
-            .filter(Boolean)
+          query: {
+            q: this.keyword.toLowerCase().split(/[^\w]+/).filter(Boolean)
           }
         });
       }
     }
-  };
+  });
 </script>
 
 <template>

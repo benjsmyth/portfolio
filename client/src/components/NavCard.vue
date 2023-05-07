@@ -3,10 +3,11 @@
 <script setup lang="ts">
 	import { RouterLink } from 'vue-router';
 	import { ArrowCircleRightIcon } from '@heroicons/vue/solid';
+	import { defineComponent } from 'vue';
 </script>
 
 <script lang="ts">
-  export default {
+  export default defineComponent({
     props: {
       head: null,
       body: null,
@@ -15,7 +16,7 @@
     components: {
       ArrowCircleRightIcon,
     }
-  };
+  });
 </script>
 
 <template>

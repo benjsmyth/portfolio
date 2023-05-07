@@ -1,23 +1,52 @@
+<!--
+  * File    : Viewer component
+  * Author  : Ben J. Smyth
+  * Date    : May 7, 2023
+ -->
+
+<script setup lang="ts">
+  import { defineComponent } from 'vue';
+</script>
+
 <script lang="ts">
-  // import { RouterView } from 'vue-router';  // TODO: arrow navigators
+  export default defineComponent({
+    // Options: State
+    computed: {
+      routeDesc(): any {
+        return this.$route.meta.desc;
+      },
+      routeName(): any {
+        return this.$route.name;
+      }
+    },
+    methods: {
+      formatText(text: string) {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+      }
+    }
+  });
 </script>
 
 <template>
-  <div id="viewer-wrapper"
-    class="h-full px-28 py-3 overflow-auto">
-    <main id="viewer-main"
-      class="p-8 overflow-auto">
-      <div id="viewer-window"
-        class="flex items-end justify-between">
-        <h1 id="viewer-route-name"
-          class="font-bold text-4xl text-slate-300">
-          {{ this.$route.name.charAt(0).toUpperCase() + this.$route.name.slice(1) }}
+  <div id="viewer-wrapper" class="
+      h-full overflow-auto px-28 py-3
+    ">
+    <main id="viewer-main" class="
+        overflow-auto p-8
+      ">
+      <div id="viewer-window" class="
+          flex items-end justify-between
+        ">
+        <h1 id="viewer-route-name" class="font-bold text-4xl text-slate-300">
+          {{ formatText(routeName) }}
         </h1>
         <h2 class="text-2xl text-slate-300">
-          {{ this.$route.meta.desc.charAt(0).toUpperCase() + this.$route.meta.desc.slice(1) }}
+          {{ formatText(routeDesc) }}
         </h2>
       </div>
-      <RouterView class="overflow-auto py-4"/>
+      <RouterView class="
+        overflow-auto py-4
+      "/>
     </main>
   </div>
 </template>

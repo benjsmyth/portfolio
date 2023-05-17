@@ -8,9 +8,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "ignoreDeprecations": "5.0",
+    "lib": ["ES2019"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "target": "ES2019"
   },
 
   "references": [

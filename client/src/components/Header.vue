@@ -1,12 +1,7 @@
-<!-- Header component -->
-
-<script setup lang="ts">
+<script lang="ts">
   import { RouterLink } from 'vue-router';
   import { SearchIcon } from '@heroicons/vue/solid';
   import { defineComponent } from 'vue';
-</script>
-
-<script lang="ts">
   export default defineComponent({
     data() {
       return {
@@ -33,22 +28,20 @@
 </script>
 
 <template>
-  <div id="header-wrapper">
-    <header id="header-header">
-      <nav id="header-nav"
-        class="
+  <div class="header-wrapper">
+    <header class="header-header">
+      <nav class="header-nav
           flex justify-between
         ">
-        <menu id="header-menu"
-          class="
+        <menu class="header-menu
             flex text-slate-400 w-2/5
           ">
-          <RouterLink id="menu-home" to="/" :exact-active-class="
+          <RouterLink exact to="/" :exact-active-class="
               'bg-slate-800 outline outline-1 outline-slate-500 text-slate-300'
             "
-            class="
+            class="menu-home
               ease-in-out p-2 px-3 transition hover:text-slate-300
-            " exact>
+            ">
             Home
           </RouterLink>
           <RouterLink id="menu-about" to="/about"

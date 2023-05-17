@@ -1,14 +1,15 @@
-<!-- Contact view -->
-
-<script setup lang="ts">
-  import ContactCard from '../components/ContactCard.vue';
+<script lang="ts">
+  import ContactForm from '@/components/ContactForm.vue';
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    components: {
+      ContactForm
+    }
+  });
 </script>
 
 <template>
-  <div id="contact-wrapper">
-    <ContactCard
-      head="Contact Form"
-      body="Contact body"
-    />
+  <div class="contact-wrapper">
+    <ContactForm/>
   </div>
 </template>

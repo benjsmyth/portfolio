@@ -1,7 +1,4 @@
-<!-- About view -->
-
 <script setup lang="ts">
-  // import { AcademicCapIcon } from '@heroicons/vue/solid';
   import { aboutKey } from '@/keys';
   import { inject } from 'vue';
   import FlipCard from '@/components/FlipCard.vue';

@@ -1,14 +1,26 @@
-<!-- Projects view -->
-
 <script lang="ts">
-  import { CalendarIcon, SortAscendingIcon, SortDescendingIcon  } from '@heroicons/vue/solid';
-  import { projectKey } from '@/keys';
-  import { defineComponent, inject } from 'vue';
-  import FlipCard from '../components/FlipCard.vue';
+  import { projectKey }
+    from '@/keys';
+  import { defineComponent, inject }
+    from 'vue';
+  import { CalendarIcon, SortAscendingIcon, SortDescendingIcon }
+    from '@heroicons/vue/solid';
+  import FlipCard
+    from '@/components/FlipCard.vue';
+  /*
+  ** When "integrating with Composition-API-based code in an Options API component",
+  ** use `setup()` https://vuejs.org/api/composition-api-setup.html.
+  //
+  ** To allow type inference, we use symbolic injection keys.
+  ** But this needs to be done in a setup context,
+  ** and the reference to `projects` in `filteredProjects`
+  ** must reside in the same script. As an exception,
+  ** we remove `script setup` and use `setup()` instead.
+  */
   export default defineComponent({
-    setup() {
-      const projects = inject(projectKey, []);
-      return {
+    // Composition: Setup
+    setup(): any {
+      const projects: any[] = inject(projectKey, []); return {
         projects
       }
     },
@@ -28,12 +40,13 @@
       }
     },
     computed: {
-      filteredProjects(): Array<any> {
+      filteredProjects(): any[] {
         const searchQuery = this.$route.query.q
-        let filteredProjects: any[] = (searchQuery != null && searchQuery.length > 0) ?
-          this.projects.filter((project: any) => {
-            for (const searchTag of searchQuery) if (project.tags.includes(searchTag)) return project;
-          }) : this.projects;
+        let filteredProjects: any[] = (searchQuery != null && searchQuery.length > 0)
+          ? this.projects.filter((project: any) => { for (const searchTag of searchQuery)
+              if (project.tags.includes(searchTag)) return project;
+            })
+          : this.projects;
         if (this.isAscending) {
           if (this.isByTitle) {
             filteredProjects.sort((a: any, b: any) => a.title.localeCompare(b.title));
@@ -61,11 +74,6 @@
         this.isByTitle = this.isByTitle ? false : true;
       }
     },
-    // Options: Composition
-    // inject: [
-    //   'projects',
-    //   'tags'
-    // ],
     // Options: Misc
     components: {
       CalendarIcon,
@@ -79,7 +87,7 @@
 <template>
   <div id="projects-wrapper"
     class="
-      space-y-4
+      overflow-hidden space-y-4
     ">
     <div id="organizing-tools"
       class="

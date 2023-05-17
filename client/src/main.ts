@@ -1,19 +1,10 @@
-/**
- * File:    Frontend application script
- * Author:  Ben J. Smyth
- * Date:    May 7, 2023
- */
-
-// Third-party imports
-import { createApp } from 'vue';
 import axios from 'axios';
-
-// Custom imports
-import { aboutKey, projectKey, tagKey } from './keys';
 import router from './router';
 import App from './App.vue';
+import { createApp } from 'vue';
+import { aboutKey, projectKey, tagKey } from './keys';
 
-// Addresses
+// Address
 const HOST: string = 'http://localhost';
 const PORT: string = '8000';
 
@@ -21,10 +12,10 @@ const PORT: string = '8000';
 const app: any = createApp(App).use(router);
 
 // GET abouts
-await axios.get(`${HOST}:${PORT}/abouts`)
+await axios.get(`${HOST}:${PORT}/abouts/`)
   .then(response => {
     app.provide(
-      aboutKey, response.data
+      aboutKey, Object.values(response.data)
     );
   })
   .catch(error => {
@@ -32,12 +23,12 @@ await axios.get(`${HOST}:${PORT}/abouts`)
       Error fetching \`abouts\` => ${error}
     `);
   });
-//
+
 // GET projects
-await axios.get(`${HOST}:${PORT}/projects`)
+await axios.get(`${HOST}:${PORT}/projects/`)
   .then(response => {
     app.provide(
-      projectKey, response.data
+      projectKey, Object.values(response.data)
     );
   })
   .catch(error => {
@@ -45,12 +36,12 @@ await axios.get(`${HOST}:${PORT}/projects`)
       Error fetching \`projects\` => ${error}
     `);
   });
-//
+
 // GET tags
-await axios.get(`${HOST}:${PORT}/tags`)
+await axios.get(`${HOST}:${PORT}/tags/`)
   .then(response => {
     app.provide(
-      tagKey, response.data
+      tagKey, Object.values(response.data)
     );
   })
   .catch(error => {

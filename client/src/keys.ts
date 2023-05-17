@@ -1,9 +1,3 @@
-/**
- * File:    Frontend injection keys
- * Author:  Ben J. Smyth
- * Date:    May 7, 2023
- */
-
 import type { InjectionKey } from 'vue';
 
 const aboutKey = Symbol('abouts') as InjectionKey<any[]>;

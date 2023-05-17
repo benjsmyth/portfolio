@@ -1,9 +1,3 @@
-<!--
- * File:    `Tags` view component
- * Author:  Ben J. Smyth
- * Date:    May 7, 2023
--->
-
 <script setup lang="ts">
   import { defineComponent, inject } from 'vue'
   import { tagKey } from '../keys';

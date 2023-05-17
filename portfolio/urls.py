@@ -1,15 +1,16 @@
 """
-For more information please see:
+For more information on this file, see
 https://docs.djangoproject.com/en/4.0/topics/http/urls/.
 """
 
 from django.contrib import admin
 from django.urls import path
-from server import views
+from server.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('abouts/', views.abouts),
-    path('projects/', views.projects),
-    path('tags/', views.tags)
+    path('abouts/', abouts),
+    path('projects/', projects),
+    path('tags/', tags),
+    path('mail/', mail)
 ]

@@ -2,7 +2,9 @@ from datetime import date
 from django.db import models
 
 class About(models.Model):
-    """A section of concise text describing an aspect of my life."""
+    """
+    A section of concise text describing an aspect of my life.
+    """
     topic = models.CharField(max_length=9)
     description = models.CharField(max_length=100)
     content = models.TextField()
@@ -10,7 +12,9 @@ class About(models.Model):
         return self.topic
 
 class Project(models.Model):
-    """A collection of information displaying something that I've created."""
+    """
+    A collection of information displaying something that I've created.
+    """
     date = models.DateField(default=date.today())
     update = models.DateField(auto_now=True)
     title = models.CharField(max_length=50)
@@ -20,7 +24,9 @@ class Project(models.Model):
         return self.title
 
 class Tag(models.Model):
-    """A word or phrase annotating a project."""
+    """
+    A word or phrase annotating a project.
+    """
     keyword = models.CharField(max_length=25)
     projects = models.ManyToManyField(Project, related_name='tags')
     def __str__(self):

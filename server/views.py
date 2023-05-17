@@ -1,56 +1,54 @@
-from django.http import JsonResponse
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import *
 
-def abouts(request):
-    """Fetch a list of briefs currently in the database."""
-    abouts = []
+def abouts(request: object) -> JsonResponse:
+    abouts = {}
     for about in About.objects.all():
-        abouts.append({
+        abouts[about.id] = {
             'id': about.id,
             'topic': about.topic,
             'desc': about.description,
             'content': about.content
         }
-    )
-    response = JsonResponse(abouts, safe=False)
-    response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
-    return response
+    return JsonResponse(abouts)
 
-def projects(request):
-    """Fetch a list of projects currently in the database."""
-    projects = []
+def projects(request: object) -> JsonResponse:
+    projects = {}
     for project in Project.objects.all().prefetch_related('tags'):
-        projects.append({
+        projects[project.id] = {
             'id': project.id,
             'date': project.date,
             'update': project.update,
             'title': project.title,
             'desc': project.description,
             'content': project.content,
-            'tags': sorted([tag.keyword for tag in project.tags.all()])
+            'tags': [tag.keyword for tag in project.tags.all()]
         }
-    )
-    projects.sort(key=lambda project: project['title'])
-    response = JsonResponse(projects, safe=False)
-    response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
-    return response
+    return JsonResponse(projects)
 
-def tags(request):
-    """Fetch a list of tags currently in the database."""
-    tags = []
+def tags(request: object) -> JsonResponse:
+    tags = {}
     for tag in Tag.objects.all().prefetch_related('projects'):
-        tags.append({
+        tags[tag.id] = {
             'id': tag.id,
             'keyword': tag.keyword,
-            'projects': sorted([project.title for project in tag.projects.all()])
+            'projects': [project.title for project in tag.projects.all()]
         }
-    )
-    tags.sort(key=lambda tag: tag['keyword'])
-    response = JsonResponse(tags, safe=False)
-    response['Access-Control-Allow-Origin'] = 'http://localhost:8000'
-    return response
+    return JsonResponse(tags)
 
-# def search(request):
-#     """Fetch a list of related search terms."""
-#     result = []
-#     for term in Term.objects.all().
+def mail(request: object) -> HttpResponse | HttpResponseRedirect:
+    return HttpResponse('response')
+    # email = request.POST.get("email", "")
+    # subject = request.POST.get("subject", "")
+    # message = request.POST.get("message", "")
+    # if subject and message and email:
+    #     try:
+    #         send_mail(subject, message, email, ["smythjben@gmail.com"])
+    #     except BadHeaderError:
+    #         return HttpResponse("Bad header error!")
+    #     return HttpResponseRedirect("/contact")
+    # else:
+    #     # In reality we'd use a form class
+    #     # to get proper validation errors.
+    #     return HttpResponse("Make sure all fields are entered and valid.")
